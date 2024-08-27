@@ -2,10 +2,12 @@
 import { List } from 'react-virtualized';
 import { loremIpsum } from 'lorem-ipsum';
 import 'react-virtualized/styles.css'; // Import styles
+import styles from './styles.module.css';
+import IntersectionLazyLoad from '../common/lntersection-lazy-load';
 
 // Your list data
-const list = Array(1000).fill().map((_, index) => ({
-  id: index,
+const list = Array.from({ length: 5000 }, (_, index) => ({
+  id: index.toString(),
   name: `Item ${index}`,
   text: loremIpsum({
     count: 1,
@@ -14,33 +16,32 @@ const list = Array(1000).fill().map((_, index) => ({
     sentenceUpperBound: 8
   })
 }));
-console.log(list);
-// Function to render each row
 function rowRenderer({ index, key, style }:{index: number, key: string, style: React.CSSProperties}) {
   console.log({ index, key, style })
   return (
-    <div key={key} style={style}>
-      <div className="content">
-        <div>{list[index].name}</div>
+    <div id="xyz" key={key} style={style} className={styles.container}>
+      {/* <img width={200} height={200} src={"https://yt3.googleusercontent.com/L9p5C1DxCnZgj3B7nbPA-hxHU9-raoFkwZraN6jHlAPLIXIU9kE3R4YqXltKG1Ps7yahvEeR5Vc=s900-c-k-c0x00ffffff-no-rj"} alt={list[index].name} /> */}
+      <IntersectionLazyLoad imgHeight={200} src={"https://yt3.googleusercontent.com/L9p5C1DxCnZgj3B7nbPA-hxHU9-raoFkwZraN6jHlAPLIXIU9kE3R4YqXltKG1Ps7yahvEeR5Vc=s900-c-k-c0x00ffffff-no-rj"} alt={list[index].name} />
+      {/* <div className='imageWrapper'>
+        <img width={200} height={200} src={"https://yt3.googleusercontent.com/L9p5C1DxCnZgj3B7nbPA-hxHU9-raoFkwZraN6jHlAPLIXIU9kE3R4YqXltKG1Ps7yahvEeR5Vc=s900-c-k-c0x00ffffff-no-rj"} alt={list[index].name} />
+      </div> */}
+      {/* <div className={styles.content}>
+        <h3>{list[index].name}</h3>
         <div>{list[index].text}</div>
-      </div>
+      </div> */}
     </div>
   );
-  // return (
-  //   <div key={key} style={style}>
-  //     {list[index].name}
-  //   </div>
-  // );
 }
 
 // Main component
 function MyVirtualizedList() {
+ 
   return (
     <List
-      width={500}
+      width={600}
       height={500}
       rowCount={list.length}
-      rowHeight={60}
+      rowHeight={200}
       rowRenderer={rowRenderer}
     />
   );
