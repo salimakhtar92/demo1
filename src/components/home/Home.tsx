@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // import CustomInput from '../input/CustomInput';
 // import PaginationComponent from "../common/pagination";
 
@@ -24,20 +24,6 @@ const Home: React.FC<Props> = () => {
         };
     });
     
-    console.log('render1', time);
-    useLayoutEffect(() => {
-        const element = document.getElementById('myElement');
-        const height = element?.getBoundingClientRect().height || 0;
-        element.style.height = `${height}px`;
-        console.log('useLayoutEffect', height);
-      }, [time]);
-      console.log('render2', time);
-    useEffect(() => {
-        console.log('useEffect', time);
-        return () => {
-            console.log('cleanup', time);
-        }
-    }, [time]);
     return (
         <div id="myElement">
             {/* <CustomInput /> */}
