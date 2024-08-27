@@ -1,0 +1,37 @@
+.page {
+  display: inline-block;
+  padding: 8px 8px;
+  width: 25px;
+  border-radius: 5px;
+  background-color: #eaeef1;
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.dot {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #007bff;
+  width: 10px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 20px;
+  width: 200px;
+  height: 300px;
+}
