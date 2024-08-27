@@ -26,7 +26,7 @@ const IntersectionLazyLoad: FC<IntersectionLazyLoadProps> = ({src, alt, imgHeigh
   }, []);
 
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-    console.log(entries);
+
     entries.forEach((entry) => {
       if(entry.isIntersecting) {
         (imgRef.current as HTMLImageElement).src = src;
