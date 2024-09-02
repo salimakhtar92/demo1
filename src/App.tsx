@@ -6,7 +6,7 @@ function App() {
   const [elementRef, isVisible]= useElementObserver({
     root: null,
     rootMargin: "0px",
-    threasold: 1
+    threshold: 1
   });
 
   return (
