@@ -3,7 +3,7 @@ import {useState, useEffect, useRef } from "react";
 interface ElementObserverProps {
     root: Element | null;
     rootMargin: string;
-    threasold: number;
+    threshold: number;
 };
 
 const useElementObserver = (option: ElementObserverProps) => {
